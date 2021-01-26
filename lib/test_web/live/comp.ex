@@ -26,7 +26,8 @@ defmodule TestWeb.Comp do
 
   def handle_event("add-item", _event, socket) do
     latest_item = socket.assigns.latest_item + 1
-    items = socket.assigns.items ++ [%{uuid: latest_item}]
+    items = socket.assigns.items ++ [%{uuid: "#{latest_item}"}]
+    IO.inspect(items)
     {:noreply, assign(socket, latest_item: latest_item, items: items)}
   end
 
